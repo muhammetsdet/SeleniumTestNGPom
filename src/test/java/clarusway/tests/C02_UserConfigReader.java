@@ -1,4 +1,4 @@
-package clarusway.tests.C02_;
+package clarusway.tests;
 
 import clarusway.utilities.ConfigReader;
 import clarusway.utilities.Driver;

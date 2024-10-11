@@ -7,27 +7,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 
-public class InputValidationPage {
+import java.util.List;
+
+public class HBMarkalarPage {
 
 
-    public InputValidationPage() {
+    public HBMarkalarPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(id = "firstname")
-    public WebElement firstname;
-
-    @FindBys({// AND operator gibi alttaki tüm locator'ların bulunması gerekiyor.
-            @FindBy(id = "surname"),
-            @FindBy(xpath = "//input[@name='surname']")
-    })
-    public WebElement lastname;
-    @FindAll({//OR operator gibi seçeneklerden birinin locate edilebilmesi web elementin bulunanması yeterlidir.
-            @FindBy(id = "notes"),
-            @FindBy(xpath = "//textarea[@maxlength='2000']"),
-            @FindBy(name = "notes")
-    })
-    public WebElement notes;
-
-
+    @FindBy(xpath = "//input[@name='markalar']")
+    public List<WebElement> markalar;
 }

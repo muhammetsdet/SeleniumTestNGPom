@@ -2,45 +2,32 @@ package clarusway.pages;
 
 import clarusway.utilities.Driver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 
-public class DhtmlPage {
+public class InputValidationPage {
 
 
-    public DhtmlPage(){
+    public InputValidationPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(id = "box1")
-    public WebElement oslo;
-    @FindBy(id = "box2")
-    public WebElement stockholm;
-    @FindBy(id = "box3")
-    public WebElement washington;
-    @FindBy(id = "box4")
-    public WebElement copenhagen;
-    @FindBy(id = "box5")
-    public WebElement seoul;
-    @FindBy(id = "box6")
-    public WebElement rome;
-    @FindBy(id = "box7")
-    public WebElement madrid;
+    @FindBy(id = "firstname")
+    public WebElement firstname;
 
-    @FindBy(id = "box101")
-    public WebElement norway;
-    @FindBy(id = "box102")
-    public WebElement sweden;
-    @FindBy(id = "box103")
-    public WebElement usa;
-    @FindBy(id = "box104")
-    public WebElement denmark;
-    @FindBy(id = "box105")
-    public WebElement korea;
-    @FindBy(id = "box106")
-    public WebElement italy;
-    @FindBy(id = "box107")
-    public WebElement spain;
+    @FindBys({// AND operator gibi alttaki tüm locator'ların bulunması gerekiyor.
+            @FindBy(id = "surname"),
+            @FindBy(xpath = "//input[@name='surname']")
+    })
+    public WebElement lastname;
+    @FindAll({//OR operator gibi seçeneklerden birinin locate edilebilmesi web elementin bulunanması yeterlidir.
+            @FindBy(id = "notes"),
+            @FindBy(xpath = "//textarea[@maxlength='2000']"),
+            @FindBy(name = "notes")
+    })
+    public WebElement notes;
 
 
 }
